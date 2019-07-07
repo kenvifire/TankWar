@@ -16,7 +16,7 @@ public class SceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GeneratePlayer(0, 1);
+//        GeneratePlayer(0, 1);
         BuildAirWall();
         BuildBase(0, -8);
     }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3110443319346611272
+--- !u!1 &3346925480230878844
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4736241876827187954}
-  - component: {fileID: 1715563949440801444}
-  - component: {fileID: 493856222921357069}
-  - component: {fileID: 2394519777986712116}
-  - component: {fileID: 3110443319346611277}
+  - component: {fileID: 4963718449103900870}
+  - component: {fileID: 1339470245170749584}
+  - component: {fileID: 252956786924899641}
+  - component: {fileID: 2621977104517081088}
+  - component: {fileID: 385103147511554127}
   m_Layer: 0
-  m_Name: Player
+  m_Name: SmallEnimy
   m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4736241876827187954
+--- !u!4 &4963718449103900870
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3110443319346611272}
+  m_GameObject: {fileID: 3346925480230878844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.65, y: -0.2, z: 0}
+  m_LocalPosition: {x: 5.33, y: -1.85, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1715563949440801444
+--- !u!212 &1339470245170749584
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3110443319346611272}
+  m_GameObject: {fileID: 3346925480230878844}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c3a4b3c783ddce7438622efbc82d5538, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3348c3d1a93bce84fba2264f6a8458f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,13 +82,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &493856222921357069
+--- !u!61 &252956786924899641
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3110443319346611272}
+  m_GameObject: {fileID: 3346925480230878844}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -108,14 +108,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.28, y: 0.28}
   m_EdgeRadius: 0
---- !u!50 &2394519777986712116
+--- !u!50 &2621977104517081088
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3110443319346611272}
+  m_GameObject: {fileID: 3346925480230878844}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -129,27 +129,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3110443319346611277
+--- !u!114 &385103147511554127
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3110443319346611272}
+  m_GameObject: {fileID: 3346925480230878844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19c867e94199f4cb9a923d04ad5e2193, type: 3}
+  m_Script: {fileID: 11500000, guid: 329dc1a8455ad47c0afb3147a62e8d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
   tankSprites:
-  - {fileID: 21300000, guid: c3a4b3c783ddce7438622efbc82d5538, type: 3}
-  - {fileID: 21300016, guid: c3a4b3c783ddce7438622efbc82d5538, type: 3}
-  - {fileID: 21300032, guid: c3a4b3c783ddce7438622efbc82d5538, type: 3}
-  - {fileID: 21300048, guid: c3a4b3c783ddce7438622efbc82d5538, type: 3}
+  - {fileID: 21300000, guid: 3348c3d1a93bce84fba2264f6a8458f4, type: 3}
+  - {fileID: 21300016, guid: 3348c3d1a93bce84fba2264f6a8458f4, type: 3}
+  - {fileID: 21300032, guid: 3348c3d1a93bce84fba2264f6a8458f4, type: 3}
+  - {fileID: 21300048, guid: 3348c3d1a93bce84fba2264f6a8458f4, type: 3}
   bulletPrefeb: {fileID: 6809932414385909381, guid: 13f342af018c44ff8adcbc8720d90119,
     type: 3}
-  explosionPrefab: {fileID: 5568523638499698279, guid: e2ec6c9ccf8b34fad89749b7a4ae2c96,
-    type: 3}
-  defendEffectPrefab: {fileID: 2738489473325287342, guid: 70cf52cabab7748c5b8c7c444e895b09,
-    type: 3}
+  moveSpeed: 3

@@ -66,6 +66,8 @@ public class Player : MonoBehaviour
     {
         float v = Input.GetAxisRaw("Vertical");
         transform.Translate(Vector3.up * v * moveSpeed * Time.fixedDeltaTime, Space.World);
+        
+        Debug.Log("Distance of player: " + v * moveSpeed * Time.fixedDeltaTime);
         if (v < 0)
         {
             render.sprite = tankSprites[2];
@@ -86,6 +88,7 @@ public class Player : MonoBehaviour
 
         float h = Input.GetAxisRaw("Horizontal");
         transform.Translate(Vector3.right * h * moveSpeed * Time.fixedDeltaTime, Space.World);
+        
         if (h < 0)
         {
             render.sprite = tankSprites[3];
@@ -105,9 +108,11 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(bulletPrefeb, transform.position, Quaternion.Euler(transform.eulerAngles + bulletEulerAngles));
+            
             timer = 0;
         }
     }
+    
 
     private void Die()
     {
@@ -115,6 +120,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
+        
 
         Instantiate(explosionPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
