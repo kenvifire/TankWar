@@ -141,15 +141,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c867e94199f4cb9a923d04ad5e2193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefeb: {fileID: 6809932414385909381, guid: 13f342af018c44ff8adcbc8720d90119,
+    type: 3}
+  explosionPrefab: {fileID: 5568523638499698279, guid: e2ec6c9ccf8b34fad89749b7a4ae2c96,
+    type: 3}
+  defendEffectPrefab: {fileID: 2738489473325287342, guid: 70cf52cabab7748c5b8c7c444e895b09,
+    type: 3}
   moveSpeed: 3
   tankSprites:
   - {fileID: 21300000, guid: c3a4b3c783ddce7438622efbc82d5538, type: 3}
   - {fileID: 21300016, guid: c3a4b3c783ddce7438622efbc82d5538, type: 3}
   - {fileID: 21300032, guid: c3a4b3c783ddce7438622efbc82d5538, type: 3}
   - {fileID: 21300048, guid: c3a4b3c783ddce7438622efbc82d5538, type: 3}
-  bulletPrefeb: {fileID: 6809932414385909381, guid: 13f342af018c44ff8adcbc8720d90119,
-    type: 3}
-  explosionPrefab: {fileID: 5568523638499698279, guid: e2ec6c9ccf8b34fad89749b7a4ae2c96,
-    type: 3}
-  defendEffectPrefab: {fileID: 2738489473325287342, guid: 70cf52cabab7748c5b8c7c444e895b09,
+  sceneManager: {fileID: 6968605421310761353, guid: 760706521f95c4029bb38a895a7549e7,
     type: 3}

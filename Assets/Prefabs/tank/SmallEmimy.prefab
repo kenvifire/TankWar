@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8760467078883697764}
   - component: {fileID: 6388467576234130900}
   m_Layer: 0
-  m_Name: LargeEmimy
+  m_Name: SmallEmimy
   m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,11 +141,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329dc1a8455ad47c0afb3147a62e8d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefeb: {fileID: 6809932414385909381, guid: 13f342af018c44ff8adcbc8720d90119,
+    type: 3}
+  explosionPrefab: {fileID: 5568523638499698279, guid: e2ec6c9ccf8b34fad89749b7a4ae2c96,
+    type: 3}
+  defendEffectPrefab: {fileID: 2738489473325287342, guid: 70cf52cabab7748c5b8c7c444e895b09,
+    type: 3}
+  moveSpeed: 3
   tankSprites:
   - {fileID: 21300008, guid: 3348c3d1a93bce84fba2264f6a8458f4, type: 3}
   - {fileID: 21300024, guid: 3348c3d1a93bce84fba2264f6a8458f4, type: 3}
   - {fileID: 21300042, guid: 3348c3d1a93bce84fba2264f6a8458f4, type: 3}
   - {fileID: 21300056, guid: 3348c3d1a93bce84fba2264f6a8458f4, type: 3}
-  bulletPrefeb: {fileID: 6809932414385909381, guid: 13f342af018c44ff8adcbc8720d90119,
+  sceneManager: {fileID: 6968605421310761353, guid: 760706521f95c4029bb38a895a7549e7,
     type: 3}
-  moveSpeed: 3

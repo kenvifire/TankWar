@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6968605421310761352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6968605421310761358}
+  - component: {fileID: 6968605421310761353}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6968605421310761358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6968605421310761352}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6968605421310761353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6968605421310761352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858a4e9e892484e1aa5e360b464fe685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefeb: {fileID: 3110443319346611272, guid: 54fb617df23cf4458b8394112cb9188b,
+    type: 3}
+  smallEnemyPrefab: {fileID: 8323468849314935320, guid: 9dd4165a053d540d8963e6843111eac1,
+    type: 3}
+  largeEnemyPrefab: {fileID: 3346925480230878844, guid: 8606cfe3a63f54d318cb4719db8f3204,
+    type: 3}
+  airWallPrefeb: {fileID: 7418190285465453414, guid: cc716f63ba0ff428daccc42e52645654,
+    type: 3}
+  heartPrefeb: {fileID: 7602257189420622706, guid: 08887817cfc794a8cbb218785f30bd46,
+    type: 3}
+  wallPrefeb: {fileID: 8989437131501404251, guid: 1862a4a658e93436bb92e1b3a03f9faf,
+    type: 3}
+  barriarPrefeb: {fileID: 6397942698021759721, guid: b6a6f54bf1b694d098c5d48d02ef3835,
+    type: 3}
+  riverPrefeb: {fileID: 3500408440195703609, guid: 07046f21102e6499caaea888dfca285a,
+    type: 3}
+  grassPrefeb: {fileID: 7767280621321389091, guid: 260fede8d122145d2987ecfbe60681a0,
+    type: 3}
+  bornEffectPrefab: {fileID: 6623835511737775457, guid: 8bf4e76657f5f45ed8c92f1456d016f2,
+    type: 3}
+  xStart: -12
+  xEnd: 12
+  yStart: -9
+  yEnd: 9
+  wallSize: 1
