@@ -147,6 +147,12 @@ namespace com.triplewater
 					isDefend = false;
 				}
 			}
+			else
+			{
+				defendEffectPrefab.SetActive(false);
+			}
+			defendEffectPrefab.SetActive(false);
+			
 		}
 
 		private IEnumerator DelayDestory(Object obj, float delayTime)

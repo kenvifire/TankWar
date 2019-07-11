@@ -47,7 +47,9 @@ namespace com.triplewater
                 case "Barriar":
                     Destroy(gameObject);
                     break;
-                case "Enemy":
+                case "Bullet":
+                    Destroy(gameObject);
+                    Destroy(collision.gameObject);
                     break;
             }
 

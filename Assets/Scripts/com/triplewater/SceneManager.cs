@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -25,13 +24,16 @@ namespace com.triplewater
         private int enemyCnt = 8;
         private int playerCnt = 3;
             
-        public float xStart;
-        public float xEnd;
-        public float yStart;
-        public float yEnd;
+        public int  xStart;
+        public int xEnd;
+        public int yStart;
+        public int yEnd;
 
-        public float wallSize;
+        public int wallSize;
         private BitArray _positions;
+        private System.Random _random;
+        private int _width;
+        private int _height;
 
         private float[][] _enemyPositions = new float[][]
             {new float[] {-10, 8}, new float[] {-5, 8}, new float[] {0, 8}, new float[] {5, 8}, new float[]{10, 8} };
@@ -47,13 +49,15 @@ namespace com.triplewater
                 sceneManager = this;
             }
             DontDestroyOnLoad(this);
-            
-         
+            _random = new System.Random();
+            _width = xEnd - xStart + 1;
+            _height = yEnd - yStart + 1;
+
         } 
         // Start is called before the first frame update
         void Start()
         {
-            _positions = new BitArray(17 * 21);
+            _positions = new BitArray(_width * _height);
                 
 //            GeneratePlayer(-2, -8);
 //            GeneratePlayer(2, -8);
@@ -86,15 +90,13 @@ namespace com.triplewater
 
         void GenerateMap()
         {
-            for (int i = -10; i <= 10; i++)
+            for (int i = xStart; i <= xEnd; i++)
             {
-                for (int j = -8; j <= 8; j++)
+                for (int j = yStart; j <= yEnd; j++)
                 {
                     if (!_positions.Get(ToBitPosition(i, j)))
                     {
-                       GameObject gameObject = GenerateGameObject(GetRandomObject(), i, j);
-                       Debug.Log("generate " + gameObject + "@" + i + "," + j);
-                       
+                        GenerateGameObject(GetRandomObject(), i, j);
                     }
                 }
             }
@@ -122,27 +124,27 @@ namespace com.triplewater
         void BuildAirWall()
         {
             //up
-            for (float i = xStart; i < xEnd; i += wallSize)
+            for (int i = xStart; i <= xEnd; i += wallSize)
             {
-                GenerateAirWall(i, 9);
+                GenerateAirWall(i, yEnd + 1);
             }
 
             //down
-            for (float i = xStart; i < xEnd; i += wallSize)
+            for (float i = xStart; i <= xEnd; i += wallSize)
             {
-                GenerateAirWall(i, -9);
+                GenerateAirWall(i, yStart - 1);
             }
 
             //left
-            for (float i = yStart; i < yEnd; i += wallSize)
+            for (float i = yStart; i <= yEnd; i += wallSize)
             {
-                GenerateAirWall(-11, i);
+                GenerateAirWall(xStart - 1, i);
             }
 
             //right
-            for (float i = yStart; i < yEnd; i += wallSize)
+            for (float i = yStart; i <= yEnd; i += wallSize)
             {
-                GenerateAirWall(11, i);
+                GenerateAirWall(xEnd + 1, i);
             }
         }
 
@@ -165,8 +167,8 @@ namespace com.triplewater
         GameObject GenerateGameObject(GameObject prefeb, float x, float y)
         {
             if (prefeb == null) return null;
-            int pos = ToBitPosition((int) x, (int) y);
-            if (x <= 10 && x >= -10 && y <= 8 && y >= -8)
+            int pos = ToBitPosition((int)x, (int)y);
+            if (x <= xEnd && x >= xStart && y <= yEnd && y >= yStart)
             {
                 _positions.Set(pos, true);
             }
@@ -177,7 +179,7 @@ namespace com.triplewater
 
         private int ToBitPosition(int x, int y)
         {
-            return x * 17  + y  + 178;
+            return x * _height  + y  +_width * (_height/2) + _width/2;
         }
 
         private void Born(GameObject bornObject, float x, float y) 
@@ -189,9 +191,9 @@ namespace com.triplewater
         
         private GameObject GetRandomObject()
         {
-            int random = new System.Random().Next(0, 10);
+            int rnd = _random.Next(0, 10);
 
-            switch (random)
+            switch (rnd)
             {
                 case 0:
                 case 1:
