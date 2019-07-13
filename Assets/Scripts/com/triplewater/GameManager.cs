@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace com.triplewater
 {
-    public class SceneManager : MonoBehaviour
+    public class GameManager : MonoBehaviour
     {
-        public static SceneManager sceneManager;
+        public static GameManager gameManager;
 
         public GameObject playerPrefeb;
         public GameObject smallEnemyPrefab;
@@ -47,13 +48,13 @@ namespace com.triplewater
 
         private void Awake()
         {
-            if (sceneManager != null)
+            if (gameManager != null)
             {
-                GameObject.Destroy(sceneManager);
+                GameObject.Destroy(gameManager);
             }
             else
             {
-                sceneManager = this;
+                gameManager = this;
             }
 
             DontDestroyOnLoad(this);
@@ -285,8 +286,16 @@ namespace com.triplewater
             {
                 tank.Freeze();
             }
-
             gameOverImage.SetActive(true);
+            
+            Invoke("Restart", 3); 
         }
+
+        private void Restart()
+        {
+            SceneManager.LoadScene(0);
+        }
+        
+        
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - Wall
   - Barriar
   - Bullet
+  - AirBarriar
   layers:
   - Default
   - TransparentFX

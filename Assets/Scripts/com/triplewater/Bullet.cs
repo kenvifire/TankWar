@@ -39,18 +39,35 @@ namespace com.triplewater
                 case "Heart":
                     collision.SendMessage("Die");
                     Destroy(gameObject);
-                    SceneManager.sceneManager.SendMessage("GameOver", true);
+                    GameManager gameManager = GameManager.gameManager;
+                    if (gameManager != null)
+                    {
+                        GameManager.gameManager.SendMessage("GameOver", true);
+                    }
+
                     break;
                 case "Wall":
                     Destroy(collision.gameObject);
                     Destroy(gameObject);
                     break;
                 case "Barriar":
+                    if (role == Role.Player)
+                    {
+                        collision.SendMessage("OnHit");
+                    }
+
                     Destroy(gameObject);
                     break;
                 case "Bullet":
                     Destroy(gameObject);
                     Destroy(collision.gameObject);
+                    break;
+                case "AirBarriar":
+                    if (role == Role.Player)
+                    {
+                        collision.SendMessage("OnHit");
+                    }
+                    Destroy(gameObject);
                     break;
             }
 

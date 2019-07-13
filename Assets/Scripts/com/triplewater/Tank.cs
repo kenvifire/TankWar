@@ -27,6 +27,7 @@ namespace com.triplewater
 		public Sprite[] tankSprites;
 
 		private SpriteRenderer _render;
+		
 
 		internal Direction currentDirection;
 		internal float velocity;
@@ -35,12 +36,14 @@ namespace com.triplewater
 		internal float defendTime;
 		internal Role role;
 		internal bool freezed = false;
+		internal AudioSource audioSource;
 
 		
 
 		private void Awake()
 		{
 			_render = GetComponent<SpriteRenderer>();
+			audioSource = GetComponent<AudioSource>();
 		}
 
 		// Start is called before the first frame update
@@ -128,7 +131,12 @@ namespace com.triplewater
 			{
 				return;
 			}
-			SceneManager.sceneManager.SendMessage("RoleDie", this);
+			GameManager gameManager = GameManager.gameManager;
+			if (gameManager != null)
+			{
+				gameManager.SendMessage("RoleDie", this);
+			}
+
 			Destroy(gameObject);
 			Explode();
 		}

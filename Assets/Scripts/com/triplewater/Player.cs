@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
 
 
 namespace com.triplewater
@@ -10,6 +11,8 @@ namespace com.triplewater
 
     public class Player : Tank
     {
+        public AudioClip[] moveAudios;
+
         public Player()
         {
             this.role = Role.Player;
@@ -35,7 +38,13 @@ namespace com.triplewater
 
         internal override void UpdateInternal()
         {
+            updateVelocity();
+            playAudio();
+        }
 
+        private void updateVelocity()
+        {
+            
             float v = Input.GetAxisRaw("Vertical");
 
             if (v < 0)
@@ -67,6 +76,23 @@ namespace com.triplewater
             }
 
             velocity = Math.Abs(h);
+        }
+
+        private void playAudio()
+        {
+            if (Mathf.Abs(velocity) > 0.05f)
+            {
+                audioSource.clip = moveAudios[0];
+            }
+            else
+            {
+                audioSource.clip = moveAudios[1];
+            }
+
+            if (!audioSource.isPlaying)
+            {
+            }
+            
         }
 
         protected override void FixedUpdateInternal()
