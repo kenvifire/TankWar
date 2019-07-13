@@ -39,6 +39,7 @@ namespace com.triplewater
                 case "Heart":
                     collision.SendMessage("Die");
                     Destroy(gameObject);
+                    SceneManager.sceneManager.SendMessage("GameOver", true);
                     break;
                 case "Wall":
                     Destroy(collision.gameObject);

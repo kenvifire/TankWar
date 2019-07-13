@@ -10,6 +10,10 @@ namespace com.triplewater
 
     public class Player : Tank
     {
+        public Player()
+        {
+            this.role = Role.Player;
+        }
 
         internal override void Init()
         {
@@ -70,10 +74,5 @@ namespace com.triplewater
 
         }
 
-        void Die()
-        {
-            base.Die();
-            SceneManager.sceneManager.SendMessage("GeneratePlayer");
-        }
     }
 }

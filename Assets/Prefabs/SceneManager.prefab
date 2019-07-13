@@ -63,8 +63,11 @@ MonoBehaviour:
     type: 3}
   bornEffectPrefab: {fileID: 6623835511737775457, guid: 8bf4e76657f5f45ed8c92f1456d016f2,
     type: 3}
-  xStart: -12
-  xEnd: 12
-  yStart: -9
-  yEnd: 9
+  gameOverImage: {fileID: 0}
+  playerScoreText: {fileID: 0}
+  playerLifeText: {fileID: 0}
+  xStart: -10
+  xEnd: 10
+  yStart: -8
+  yEnd: 8
   wallSize: 1

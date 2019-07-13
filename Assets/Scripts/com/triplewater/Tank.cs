@@ -34,6 +34,7 @@ namespace com.triplewater
 		internal bool isDefend;
 		internal float defendTime;
 		internal Role role;
+		internal bool freezed = false;
 
 		
 
@@ -51,6 +52,7 @@ namespace com.triplewater
 		// Update is called once per frame
 		void Update()
 		{
+			if(freezed) return;
 			UpdateInternal();
 			Defend();
 			Attack();
@@ -58,6 +60,7 @@ namespace com.triplewater
 
 		private void FixedUpdate()
 		{
+			if(freezed) return;
 			FixedUpdateInternal();
 			Move(Time.fixedDeltaTime);
 		}
@@ -125,6 +128,7 @@ namespace com.triplewater
 			{
 				return;
 			}
+			SceneManager.sceneManager.SendMessage("RoleDie", this);
 			Destroy(gameObject);
 			Explode();
 		}
@@ -147,11 +151,6 @@ namespace com.triplewater
 					isDefend = false;
 				}
 			}
-			else
-			{
-				defendEffectPrefab.SetActive(false);
-			}
-			defendEffectPrefab.SetActive(false);
 			
 		}
 
@@ -159,6 +158,16 @@ namespace com.triplewater
 		{
 			yield return new WaitForSeconds(delayTime);
 			Destroy(obj);
+		}
+
+		public void Freeze()
+		{
+			this.freezed = true;
+		}
+
+		public void Unfreeze()
+		{
+			this.freezed = false;
 		}
 
 		internal abstract void Init();

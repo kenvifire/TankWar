@@ -10,6 +10,11 @@ namespace com.triplewater
     {
         private float _runningTime;
 
+        public Enemy()
+        {
+            role = Role.Enemy;
+        }
+
         internal override void Init()
         {
             currentDirection = Direction.Down;
@@ -62,12 +67,5 @@ namespace com.triplewater
             _runningTime = GetRunningTime();
         }
         
-        void Die()
-        {
-            base.Die();
-            SceneManager.sceneManager.SendMessage("GenerateEnemy");
-        }
-
-
     }
 }
