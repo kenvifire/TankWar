@@ -9,6 +9,8 @@ namespace com.triplewater
     public class Enemy : Tank
     {
         private float _runningTime;
+        protected Joystick Joystick;
+        protected Joybutton joybutton;
 
         public Enemy()
         {

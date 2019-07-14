@@ -12,6 +12,9 @@ namespace com.triplewater
     public class Player : Tank
     {
         public AudioClip[] moveAudios;
+        protected Joystick joystick;
+        protected Joybutton Joybutton;
+        
 
         public Player()
         {
@@ -24,13 +27,15 @@ namespace com.triplewater
             isDefend = true;
             defendTime = 3.0f;
             role = Role.Player;
-                
+            joystick = FindObjectOfType<Joystick>();
+            Joybutton = FindObjectOfType<Joybutton>();
+
         }
 
 
         internal override void Attack()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Joybutton.isPressed)
             {
                 GenerateBullet();
             }
@@ -44,8 +49,8 @@ namespace com.triplewater
 
         private void updateVelocity()
         {
-            
-            float v = Input.GetAxisRaw("Vertical");
+
+            float v = getInputX();
 
             if (v < 0)
             {
@@ -64,7 +69,7 @@ namespace com.triplewater
                 return;
             }
 
-            float h = Input.GetAxisRaw("Horizontal");
+            float h = getInputY();
 
             if (h < 0)
             {
@@ -93,6 +98,36 @@ namespace com.triplewater
             {
             }
             
+        }
+
+        private float getInputX()
+        {
+            float v = Input.GetAxisRaw("Vertical");
+            if (Mathf.Abs(v) <= 0.005f)
+            {
+                if (Mathf.Abs(joystick.Vertical) >= Mathf.Abs(joystick.Horizontal))
+                {
+                    v = joystick.Vertical;
+                }
+            }
+
+            return v;
+
+        }
+        
+
+        private float getInputY()
+        {
+            float v = Input.GetAxisRaw("Horizontal");
+            if (Mathf.Abs(v) <= 0.005f)
+            {
+                if (Mathf.Abs(joystick.Vertical) < Mathf.Abs(joystick.Horizontal))
+                {
+                    v = joystick.Horizontal;
+                }
+            }
+
+            return v;  
         }
 
         protected override void FixedUpdateInternal()
