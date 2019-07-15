@@ -101,7 +101,11 @@ namespace com.triplewater
             {
                 if (Mathf.Abs(_joystick.Vertical) >= Mathf.Abs(_joystick.Horizontal))
                 {
-                    v = _joystick.Vertical;
+//                    v = _joystick.Vertical;
+                    if (Mathf.Abs(_joystick.Vertical) >= 0.001)
+                    {
+                        v = 1.0f * (_joystick.Vertical > 0 ? 1 : -1);
+                    }
                 }
             }
 
@@ -116,7 +120,11 @@ namespace com.triplewater
             {
                 if (Mathf.Abs(_joystick.Vertical) < Mathf.Abs(_joystick.Horizontal))
                 {
-                    v = _joystick.Horizontal;
+//                    v = _joystick.Horizontal;
+                    if (Mathf.Abs(_joystick.Horizontal) >= 0.001)
+                    {
+                        v = 1.0f * (_joystick.Horizontal > 0 ? 1 : -1);
+                    }
                 }
             }
 
