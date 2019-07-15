@@ -38,6 +38,8 @@ namespace com.triplewater
 		internal Role role;
 		internal bool freezed = false;
 		internal AudioSource audioSource;
+		internal bool attack = true;
+		
 
 		
 
@@ -57,9 +59,10 @@ namespace com.triplewater
 		void Update()
 		{
 			if(freezed) return;
+			
+			Attack();
 			UpdateInternal();
 			Defend();
-			Attack();
 		}
 
 		private void FixedUpdate()
@@ -181,7 +184,17 @@ namespace com.triplewater
 
 		internal abstract void Init();
 
-		internal abstract void Attack();
+		private void Attack()
+		{
+			if (CanAttack())
+			{
+				GenerateBullet();
+				bulletTime = 0;
+			}
+			
+		}
+
+		protected abstract bool CanAttack();
 
 		protected abstract void FixedUpdateInternal();
 

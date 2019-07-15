@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Joybutton : MonoBehaviour , IPointerUpHandler, IPointerDownHandler
+public class Joybutton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public bool isPressed = false;
 
@@ -20,13 +21,13 @@ public class Joybutton : MonoBehaviour , IPointerUpHandler, IPointerDownHandler
         
     }
 
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        isPressed = false;
-    }
-
     public void OnPointerDown(PointerEventData eventData)
     {
         isPressed = true;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        isPressed = false;
     }
 }

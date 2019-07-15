@@ -7,18 +7,16 @@ using UnityEngine.Experimental.PlayerLoop;
 
 namespace com.triplewater
 {
-
-
     public class Player : Tank
     {
         public AudioClip[] moveAudios;
-        protected Joystick joystick;
-        protected Joybutton Joybutton;
-        
+        private Joystick _joystick;
+        private Joybutton _joybutton;
 
         public Player()
         {
             this.role = Role.Player;
+            this.bulletTime = 0.4f;
         }
 
         internal override void Init()
@@ -27,40 +25,36 @@ namespace com.triplewater
             isDefend = true;
             defendTime = 3.0f;
             role = Role.Player;
-            joystick = FindObjectOfType<Joystick>();
-            Joybutton = FindObjectOfType<Joybutton>();
-
+            _joystick = FindObjectOfType<Joystick>();
+            _joystick.AxisOptions = AxisOptions.Both;
+            _joybutton = FindObjectOfType<Joybutton>();
         }
 
-
-        internal override void Attack()
+        protected override bool CanAttack()
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Joybutton.isPressed)
-            {
-                GenerateBullet();
-            }
+            return _joybutton.isPressed && bulletTime > 0.4f;
         }
+
+
 
         internal override void UpdateInternal()
         {
             updateVelocity();
             playAudio();
+            bulletTime += Time.deltaTime;
         }
 
         private void updateVelocity()
         {
-
             float v = getInputX();
 
             if (v < 0)
             {
                 currentDirection = Direction.Down;
-
             }
             else if (v > 0)
             {
                 currentDirection = Direction.Up;
-
             }
 
             if (v > 1e-6 || v < -1e-6)
@@ -85,7 +79,7 @@ namespace com.triplewater
 
         private void playAudio()
         {
-            if (Mathf.Abs(velocity) > 0.05f)
+            if (Mathf.Abs(velocity) > 0.0005f)
             {
                 audioSource.clip = moveAudios[0];
             }
@@ -96,8 +90,8 @@ namespace com.triplewater
 
             if (!audioSource.isPlaying)
             {
+                audioSource.Play();
             }
-            
         }
 
         private float getInputX()
@@ -105,34 +99,32 @@ namespace com.triplewater
             float v = Input.GetAxisRaw("Vertical");
             if (Mathf.Abs(v) <= 0.005f)
             {
-                if (Mathf.Abs(joystick.Vertical) >= Mathf.Abs(joystick.Horizontal))
+                if (Mathf.Abs(_joystick.Vertical) >= Mathf.Abs(_joystick.Horizontal))
                 {
-                    v = joystick.Vertical;
+                    v = _joystick.Vertical;
                 }
             }
 
             return v;
-
         }
-        
+
 
         private float getInputY()
         {
             float v = Input.GetAxisRaw("Horizontal");
             if (Mathf.Abs(v) <= 0.005f)
             {
-                if (Mathf.Abs(joystick.Vertical) < Mathf.Abs(joystick.Horizontal))
+                if (Mathf.Abs(_joystick.Vertical) < Mathf.Abs(_joystick.Horizontal))
                 {
-                    v = joystick.Horizontal;
+                    v = _joystick.Horizontal;
                 }
             }
 
-            return v;  
+            return v;
         }
 
         protected override void FixedUpdateInternal()
         {
-
         }
 
     }

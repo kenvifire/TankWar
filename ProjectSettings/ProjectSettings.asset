@@ -55,8 +55,8 @@ PlayerSettings:
   iosAppInBackgroundBehavior: 0
   displayResolutionDialog: 0
   iosAllowHTTPDownload: 1
-  allowedAutorotateToPortrait: 1
-  allowedAutorotateToPortraitUpsideDown: 1
+  allowedAutorotateToPortrait: 0
+  allowedAutorotateToPortraitUpsideDown: 0
   allowedAutorotateToLandscapeRight: 1
   allowedAutorotateToLandscapeLeft: 1
   useOSAutorotation: 1
@@ -392,7 +392,7 @@ PlayerSettings:
   actionOnDotNetUnhandledException: 1
   enableInternalProfiler: 0
   logObjCUncaughtExceptions: 1
-  enableCrashReportAPI: 0
+  enableCrashReportAPI: 1
   cameraUsageDescription: 
   locationUsageDescription: 
   microphoneUsageDescription: 

@@ -57,7 +57,6 @@ namespace com.triplewater
                 gameManager = this;
             }
 
-            DontDestroyOnLoad(this);
             _random = new System.Random();
             _width = xEnd - xStart + 1;
             _height = yEnd - yStart + 1;

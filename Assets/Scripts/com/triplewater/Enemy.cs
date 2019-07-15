@@ -9,8 +9,6 @@ namespace com.triplewater
     public class Enemy : Tank
     {
         private float _runningTime;
-        protected Joystick Joystick;
-        protected Joybutton joybutton;
 
         public Enemy()
         {
@@ -26,15 +24,6 @@ namespace com.triplewater
             role = Role.Enemy;
         }
 
-        internal override void Attack()
-        {
-            if (CanAttack())
-            {
-                GenerateBullet();
-                bulletTime = 0;
-            }
-        }
-
         protected override void FixedUpdateInternal()
         {
         }
@@ -46,9 +35,9 @@ namespace com.triplewater
             bulletTime += Time.deltaTime;
         }
 
-        bool CanAttack()
+        protected override bool CanAttack()
         {
-            bool attack = new Random().NextDouble() > 0.5;
+            attack = new Random().NextDouble() > 0.5;
             return bulletTime > 0.4 && attack;
         }
 
